@@ -7,13 +7,14 @@ import (
 
 func main() {
 	authorities := core.NewAuthority([]core.AuthoritySet{
-		{Name: "auth", DestAuthority: "http://localhost:8000"},
+		{Name: "auth", DestAuthority: "http://172.20.10.10:8080"},
 	})
 
 	r := core.NewRouter()
 
-	r.CreateFlow(http.MethodGet, "/login", authorities.Get("auth"))
-	r.CreateFlow(http.MethodGet, "/signup", authorities.Get("auth"), "/login")
+	r.CreateFlow(http.MethodPost, "/api/auth/signin", authorities.Get("auth"))
+	r.CreateFlow(http.MethodPost, "/api/auth/signout", authorities.Get("auth"))
+	r.CreateFlow(http.MethodPost, "/api/auth/signup", authorities.Get("auth"))
 
 	r.Run(":9190")
 }

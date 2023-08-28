@@ -48,7 +48,16 @@ func (r *router) CreateFlow(method, path, destAuthority string, destPath ...stri
 
 		// 해당 URL로 요청합니다.
 		req, err := http.NewRequest(method, destURL, r.Body)
+
+		// Mux로 요청온 놈 처리
+		for key, values := range r.Header {
+			for _, value := range values {
+				req.Header.Add(key, value)
+			}
+		}
+
 		req.Header.Add("Content-type", "application/json")
+
 		if err != nil {
 			log.Println("http.NewRequest() error: ", err)
 			return
