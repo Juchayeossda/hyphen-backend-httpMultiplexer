@@ -1,20 +1,41 @@
 package main
 
 import (
-	"hyphen-backend-httpMultiplexer/core"
-	"net/http"
+	"github.com/JunBeomHan/hmux"
 )
 
+const User = "http://localhost:8080"
+const Mail = "http://localhost:8081"
+const SISS = "http://localhost:8083"
+const Hellog = "http://localhost:8084"
+
 func main() {
-	authorities := core.NewAuthority([]core.AuthoritySet{
-		{Name: "auth", DestAuthority: "http://172.20.10.10:8080"},
-	})
 
-	r := core.NewRouter()
+	s := hmux.NewServer()
 
-	r.CreateFlow(http.MethodPost, "/api/auth/signin", authorities.Get("auth"))
-	r.CreateFlow(http.MethodPost, "/api/auth/signout", authorities.Get("auth"))
-	r.CreateFlow(http.MethodPost, "/api/auth/signup", authorities.Get("auth"))
+	// Auth controller
+	s.CreateFlow("POST", "/api/auth/email", User)
+	s.CreateFlow("POST", "/api/auth/signin", User)
+	s.CreateFlow("POST", "/api/auth/signout", User)
+	s.CreateFlow("POST", "/api/auth/signup", User)
 
-	r.Run(":9190")
+	// UserController
+	s.CreateFlow("DELETE", "/api/user/drop", User)
+	s.CreateFlow("GET", "/api/user/image", User)
+	s.CreateFlow("FATCH", "/api/user/image", User)
+	s.CreateFlow("GET", "/api/user/info", User)
+	s.CreateFlow("PATCH", "/api/user/name", User)
+
+	// Validate Controller
+	s.CreateFlow("POST", "/api/auth/jwt/refresh", User)
+	s.CreateFlow("POST", "/api/auth/jwt/validate", User)
+
+	// Mail Controller
+	s.CreateFlow("POST", "/api/auth/email", Mail)
+
+	// SISS Controller
+	s.CreateFlow("POST", "/api/siss/upload/image", SISS)
+	s.CreateFlow("GET", "/api/siss/extract/image/:imageName", SISS)
+
+	s.Run(":7777")
 }
