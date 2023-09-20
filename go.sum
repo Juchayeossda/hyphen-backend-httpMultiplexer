@@ -1,6 +1,2 @@
-github.com/JunBeomHan/hmux v0.0.0-20230904103527-5c9a05739de8 h1:bpV/Skqc/SQA5BL0BFs5Uj+6qAifes/jXnBgvZIgRfM=
-github.com/JunBeomHan/hmux v0.0.0-20230904103527-5c9a05739de8/go.mod h1:/mnb6BdB+LnKtbXu7M9LFoDrYWYWSxb3yijjq2oNJwg=
-github.com/JunBeomHan/hmux v0.0.0-20230905064833-dabf5f655419 h1:6m7FzRShB0I1vzRmqAIURLJindv99Q8KCZjkbhLF5qo=
-github.com/JunBeomHan/hmux v0.0.0-20230905064833-dabf5f655419/go.mod h1:/mnb6BdB+LnKtbXu7M9LFoDrYWYWSxb3yijjq2oNJwg=
-github.com/JunBeomHan/hmux v0.0.0-20230905120144-8153599c2218 h1:W7QzYMwtyVo/m2wJPJpP4FotFrA6cl6WsQ3fi4Slb+k=
-github.com/JunBeomHan/hmux v0.0.0-20230905120144-8153599c2218/go.mod h1:/mnb6BdB+LnKtbXu7M9LFoDrYWYWSxb3yijjq2oNJwg=
+github.com/JunBeomHan/hmux v0.0.0-20230920045048-47d0fc603af2 h1:FoNnqFqYPx5dYcEephdfakjbAg9Az0XJoHwVcs+/SlA=
+github.com/JunBeomHan/hmux v0.0.0-20230920045048-47d0fc603af2/go.mod h1:/mnb6BdB+LnKtbXu7M9LFoDrYWYWSxb3yijjq2oNJwg=

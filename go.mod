@@ -1,5 +1,5 @@
 module hyphen-backend-httpMultiplexer
 
-go 1.21.0
+go 1.21.1
 
-require github.com/JunBeomHan/hmux v0.0.0-20230905120144-8153599c2218
+require github.com/JunBeomHan/hmux v0.0.0-20230920045048-47d0fc603af2 // indirect
